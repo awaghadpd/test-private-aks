@@ -1,7 +1,7 @@
 #!/bin/bash
-INGRESS_NAME=$1
-ACR_URL=$2
-NAMESPACE=$3
+INGRESS_NAME= test-ingress
+ACR_URL= prajwalnewacr.azurecr.io
+NAMESPACE= ingress-basic
 INGRESS_VALUES_FILE=$4
 AKS_HELLO=$5
 INGRESS_DEMO=$6
@@ -27,7 +27,7 @@ kubectl create namespace $NAMESPACE --dry-run=client -o yaml | kubectl apply -f 
 # Authenticate with ACR with --expose-token
 export HELM_EXPERIMENTAL_OCI=1
 TOKEN=$(az acr login --name $ACR_URL --expose-token --output tsv --query accessToken)
-echo $TOKEN | helm registry login $ACR_URL --username 00000000-0000-0000-0000-000000000000 --password-stdin
+echo $TOKEN | helm registry login $ACR_URL --username prajwalnewacr --password-stdin
 
 # Pull Helm Chart from Azure Container Registry & extract files
 helm pull oci://$ACR_URL/<pathofregistry> --version 3.36.0 --untar
