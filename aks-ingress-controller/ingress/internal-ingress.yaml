@@ -5,7 +5,7 @@ rbac:
 controller:
   service:
     type: LoadBalancer
-    loadBalancerIP: <unused ip from vnet subnet where the aks is deployed>
+    loadBalancerIP: 10.1.0.244
     annotations:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   ports:
