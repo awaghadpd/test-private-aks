@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: 'ADO-LINUX-AGENT-POOL'
+pool: 'Default'
 
 
 steps:
@@ -9,7 +9,7 @@ steps:
   displayName: 'kubectl login'
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'AKS-Cluster-SC'
+    kubernetesServiceEndpoint: 'private-aks-cluster-test-service-connection'
     namespace: 'ingress-basic'
     command: login
 - task: Bash@3
@@ -20,5 +20,5 @@ steps:
 - task: Bash@3
   inputs:
     filePath: 'ingress/configure-ingress-controller.sh'
-    arguments: 'nginx-ingress <yourregistryname>.azurecr.io ingress-basic internal-ingress.yaml aks-helloworld.yaml ingress-demo.yaml hello-world-ingress.yaml'
+    arguments: 'nginx-ingress prajwalnewacr.azurecr.io ingress-basic internal-ingress.yaml aks-helloworld.yaml ingress-demo.yaml hello-world-ingress.yaml'
     workingDirectory: "ingress/"
