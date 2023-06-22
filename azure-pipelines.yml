@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: 'Default'
+pool: 'WDKubePool'
 
 
 steps:
@@ -9,7 +9,7 @@ steps:
   displayName: 'kubectl login'
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'private-aks-cluster-test-service-connection'
+    kubernetesServiceEndpoint: 'wddev-k8s service connection'
     namespace: 'ingress-basic'
     command: login
 - task: Bash@3
