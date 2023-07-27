@@ -10,15 +10,5 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
-    namespace: 'ingress-basic'
+    namespace: 'test'
     command: login
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'sed -i ''s/\r$//'' ''./configure-ingress-controller.sh'''
-    workingDirectory: "ingress/"
-- task: Bash@3
-  inputs:
-    filePath: 'ingress/configure-ingress-controller.sh'
-    arguments: 'nginx-ingress prajwalnewacr.azurecr.io ingress-basic internal-ingress.yaml aks-helloworld.yaml ingress-demo.yaml hello-world-ingress.yaml'
-    workingDirectory: "ingress/"
