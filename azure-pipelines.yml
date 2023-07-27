@@ -5,6 +5,14 @@ pool: 'WDKubePool'
 
 
 steps:
+
+- task: Kubernetes@1
+  displayName: 'kubectl login'
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'wddev-k8s service connection'
+    namespace: 'default'
+    command: login
 - task: Kubernetes@0
   displayName: 'Create Namespace'
   inputs:
@@ -18,10 +26,4 @@ steps:
       kind: Namespace
       metadata:
         name: 'test'
-- task: Kubernetes@1
-  displayName: 'kubectl login'
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'wddev-k8s service connection'
-    namespace: 'test'
-    command: login
+
