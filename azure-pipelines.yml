@@ -13,6 +13,12 @@ steps:
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
     namespace: 'default'
     command: login
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'sed -i ''s/\r$//'' ''./configure-ingress-controller1.sh'''
+    workingDirectory: "ingress/"
 - task: Kubernetes@0
   displayName: 'Create Namespace'
   inputs:
