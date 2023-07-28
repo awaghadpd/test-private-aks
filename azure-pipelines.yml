@@ -19,6 +19,7 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
+    command: 'apply'
     namespace: 'test'
     manifests: |
       apiVersion: v1
