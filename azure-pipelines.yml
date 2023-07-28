@@ -14,7 +14,7 @@ steps:
     namespace: 'default'
     command: login
 
-- task: Kubernetes@0
+- task: Kubernetes@2
   displayName: 'Create Namespace'
   inputs:
     connectionType: 'Kubernetes Service Connection'
