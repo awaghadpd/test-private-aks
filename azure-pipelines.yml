@@ -11,7 +11,7 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
-    namespace: 'default'
+    namespace: 'test'
     command: login
 
 - task: Bash@3
