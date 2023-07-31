@@ -1,21 +1,24 @@
 trigger:
-- main
+- dev
 
 pool: 'WDKubePool'
 
 
 steps:
-
 - task: Kubernetes@1
   displayName: 'kubectl login'
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
-    namespace: 'test'
+    namespace: 'default'
     command: login
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: 'sed -i ''s/\r$//'' ''./configure-ingress-controller1.sh'''
+    workingDirectory: "ingress/"
+- task: Bash@3
+  inputs:
+    filePath: 'ingress/configure-ingress-controller.sh'
+    arguments: 'test test-deploy'
     workingDirectory: "ingress/"
