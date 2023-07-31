@@ -1,6 +1,6 @@
 #!/bin/bash
-NAMESPACE=$3
-TEST_DEPLOY=$5
+NAMESPACE=$1
+TEST_DEPLOY=$2
 
 
 # create namespace if doesn't exists
