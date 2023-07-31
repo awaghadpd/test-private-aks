@@ -10,7 +10,7 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'wddev-k8s service connection'
-    namespace: 'test'
+    namespace: 'default'
     command: login
 - task: Bash@3
   inputs:
@@ -20,5 +20,5 @@ steps:
 - task: Bash@3
   inputs:
     filePath: 'ingress/configure-ingress-controller-test.sh'
-    arguments: 'test2 test-deploy.yaml'
+    arguments: 'test3 test-deploy.yaml'
     workingDirectory: "ingress/"
