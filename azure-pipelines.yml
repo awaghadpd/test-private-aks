@@ -20,5 +20,5 @@ steps:
 - task: Bash@3
   inputs:
     filePath: 'ingress/configure-ingress-controller-test.sh'
-    arguments: 'test test-deploy.yaml'
+    arguments: 'test2 test-deploy.yaml'
     workingDirectory: "ingress/"
